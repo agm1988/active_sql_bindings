@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'rubygems'
 require 'active_record'
 
 # Class for work with SQL query.
