@@ -18,9 +18,14 @@ news = ActiveSqlBindings.execute(sql, binding)
 In the **news** variable, you will get an array of data with hash.
 
 ##Attention
-Every field from SELECT will try to convert to Hash (will check field on JSON format). 
+JSON field from SELECT will try to convert to Hash (will check field on JSON format). 
 This function work is slow. You should be getting only needed fields.
 ```
 SELECT id, name, log FROM users; 
 ```
 If the log has JSON/JSONb format this field will convert to Hash.
+
+##History
+Versions:
+
+0.0.3 - Improved performance 

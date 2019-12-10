@@ -12,16 +12,13 @@ class ActiveSqlBindingsTest < Minitest::Test
     id = 1
     name = 'test'
 
-    ActiveSqlBindings.execute('CREATE TABLE IF NOT EXISTS test (
-                                        id INTEGER,
-                                        name TEXT)')
+    ActiveSqlBindings.execute('CREATE TABLE IF NOT EXISTS test (id INTEGER, name TEXT)')
 
-    ActiveSqlBindings.execute('INSERT INTO test (id, name) VALUES (:id, :name)',
-                              id: id, name: name)
+    ActiveSqlBindings.execute('INSERT INTO test (id, name) VALUES (:id, :name)', id: id, name: name)
 
-    assert_equal name,
-                 ActiveSqlBindings.execute('SELECT name FROM test WHERE id = :id',
-                                           id: id).first[:name]
+    query = ActiveSqlBindings.execute('SELECT name FROM test WHERE id = :id', id: id)
+
+    assert_equal(name, query.first[:name])
 
     File.delete('test.db') if File.exist?('test.db')
   end

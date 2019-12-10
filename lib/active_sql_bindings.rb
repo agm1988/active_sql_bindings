@@ -31,15 +31,19 @@ class ActiveSqlBindings
     end
 
     # Execute query, convert to hash with symbol keys
-    result = ActiveRecord::Base.connection.exec_query(sql, 'SQL', bindings).map(&:symbolize_keys)
+    sql_result = ActiveRecord::Base.connection.exec_query(sql, 'SQL', bindings)
+
+    # Find fields JSON/JSONb type
+    json_fields = sql_result.column_types.select { |_k, v| v.type == :json || v.type == :jsonb }.keys
 
     # Convert JSON data to hash
-    result.map do |v|
-      next if v.nil?
-
-      v.each do |key, val|
-        v[key] = json_to_hash(val)
-      end
+    sql_result.map do |v|
+      v.map do |key, value|
+        [
+          key.to_sym,
+          json_fields.include?(key) ? json_to_hash(value) : value
+        ]
+      end.to_h
     end
   end
 

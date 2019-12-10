@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = 'active_sql_bindings'
-  s.version       = '0.0.2'
+  s.version       = '0.0.3'
   s.date          = '2019-11-05'
   s.summary       = 'Active SQL bindings gem'
   s.description   = 'You can use native SQL query with named bindings'
