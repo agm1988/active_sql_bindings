@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = 'active_sql_bindings'
-  s.version       = '0.0.3'
+  s.version       = '0.0.4'
   s.date          = '2019-11-05'
   s.summary       = 'Active SQL bindings gem'
   s.description   = 'You can use native SQL query with named bindings'
@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.license       = 'MIT'
   s.add_development_dependency 'minitest', '~> 5.13.0'
   s.add_development_dependency 'sqlite3', '~> 1.4.1'
-  s.add_runtime_dependency 'activerecord', '~> 5.2.3'
+  s.add_runtime_dependency 'activerecord', '~> 6.0.2'
 end

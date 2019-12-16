@@ -28,4 +28,5 @@ If the log has JSON/JSONb format this field will convert to Hash.
 ## History
 Versions:
 
-0.0.3 - Improved performance 
+0.0.3 - Improved performance  
+0.0.4 - Updated Active Record to 6.0.2 version  
