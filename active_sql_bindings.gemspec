@@ -2,10 +2,10 @@
 
 Gem::Specification.new do |s|
   s.name          = 'active_sql_bindings'
-  s.version       = '0.0.4'
-  s.date          = '2019-11-05'
+  s.version       = '0.0.5'
+  s.date          = '2020-03-27'
   s.summary       = 'Active SQL bindings gem'
-  s.description   = 'You can use native SQL query with named bindings'
+  s.description   = 'You can use native PostgreSQL query with named bindings'
   s.authors       = ['Danilevsky Kirill']
   s.email         = 'k.danilevsky@gmail.com'
   s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }

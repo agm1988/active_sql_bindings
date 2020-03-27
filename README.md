@@ -1,5 +1,5 @@
 # active_sql_bindings
-Small ruby gem for using native SQL query with named bindings
+Small ruby gem for using native PostgreSQL query with named bindings
 
 ## Installation
 
@@ -18,15 +18,17 @@ news = ActiveSqlBindings.execute(sql, binding)
 In the **news** variable, you will get an array of data with hash.
 
 ## Attention
-JSON field from SELECT will try to convert to Hash (will check field on JSON format). 
-This function work is slow. You should be getting only needed fields.
+JSON/JSONb field from SELECT will try to convert a data to Hash (will check field on JSON format). 
+ARRAY field from SELECT will try to convert a data to Array (will check field on ARRAY format).
 ```
-SELECT id, name, log FROM users; 
+SELECT id, name, log, data FROM users; 
 ```
 If the log has JSON/JSONb format this field will convert to Hash.
+If the data has ARRAY format this field will convert to Array.
 
 ## History
 Versions:
 
 0.0.3 - Improved performance  
-0.0.4 - Updated Active Record to 6.0.2 version  
+0.0.4 - Updated Active Record to 6.0.2 version
+0.0.5 - Added converting ARRAY field to the Array. Refactoring.
