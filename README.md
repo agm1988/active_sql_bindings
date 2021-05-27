@@ -30,5 +30,6 @@ If the data has ARRAY format this field will convert to Array.
 Versions:
 
 0.0.3 - Improved performance  
-0.0.4 - Updated Active Record to 6.0.2 version
-0.0.5 - Added converting ARRAY field to the Array. Refactoring.
+0.0.4 - Updated Active Record to 6.0.2 version  
+0.0.5 - Added converting ARRAY field to the Array. Refactoring.  
+0.0.6 - Update to active records 6.1.3.2  
