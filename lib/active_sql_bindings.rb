@@ -27,7 +27,11 @@ class ActiveSqlBindings
           bind_index += 1
 
           # Add new bind data
-          bindings << [nil, value]
+          if Rails::VERSION::MAJOR >= 7
+            bindings << value
+          else
+            bindings << [nil, value]
+          end
         end
       end
 
